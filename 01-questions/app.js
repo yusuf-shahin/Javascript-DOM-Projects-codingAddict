@@ -12,18 +12,19 @@
 
 //  //  Using selector inside the element
 
-const questions = document.querySelectorAll('.question');
+const setOfQues = document.querySelectorAll('.question');
 
-questions.forEach(function (question) {
+setOfQues.forEach(function (question) {
   const btn = question.querySelector('.question-btn');
   // console.log(btn);
 
   btn.addEventListener('click', function () {
-    console.log(question);
+    // console.log(question);
 
-    questions.forEach(function (item) {
-      if (item !== question) {
-        item.classList.remove('show-text');
+    setOfQues.forEach(function (e) {
+      if (e !== question) {
+        // e stand for setOfQues
+        e.classList.remove('show-text');
       }
     });
 

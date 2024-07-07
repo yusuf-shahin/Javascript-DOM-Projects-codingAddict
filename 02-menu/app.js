@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
   showFilterBtn(categoryBtns);
 });
 
-// create filter btn dynamically...
+// create filter btn dynamically and show them into display...
 
 const showFilterBtn = (btns) => {
   const menuItems = btns
@@ -30,7 +30,9 @@ const showFilterBtn = (btns) => {
     .join('');
 
   btnContainer.innerHTML = menuItems;
-  // filter items
+  
+  // filter btns logic, how its basically work...
+  
   const filterBtns = document.querySelectorAll('.filter-btn');
 
   filterBtns.forEach((btn) => {
@@ -55,6 +57,7 @@ const showFilterBtn = (btns) => {
     });
   });
 };
+
 
 // create a function to show all item dynamicaly in display...
 

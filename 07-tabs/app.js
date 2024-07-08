@@ -10,7 +10,7 @@ const contentArticles = document.querySelectorAll('.content');
 
 about.addEventListener('click', (e) => {
   // console.log(e.target.dataset.id);
-  const id = e.target.dataset.rd;
+  const id = e.target.dataset.name;
   if (id) {
     // remove active from other btns
     btns.forEach((btn) => {
@@ -22,7 +22,7 @@ about.addEventListener('click', (e) => {
     contentArticles.forEach((article) => {
       article.classList.remove('active');
     });
-    const element = document.getElementById(id);
-    element.classList.add('active');
+    const elementArticle = document.getElementById(id);
+    elementArticle.classList.add('active');
   }
 });

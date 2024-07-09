@@ -23,8 +23,9 @@ giveaway.textContent = `Giveaway Ends On ${weekdays[weekday]} ${day}, ${months[m
 // future time in ms
 
 const futureTime = futureDate.getTime();
-console.log(futureTime);
+// console.log(futureTime);
 
+// getRemainingTime function
 const getRemainingTime = () => {
   const today = new Date().getTime();
   // console.log(today);
@@ -73,8 +74,9 @@ const getRemainingTime = () => {
     clearInterval(countdown);
     deadline.innerHTML = `<h4 class="expired">sorry , this giveaway is expired </h4>`;
   }
+  // console.log(countdown);
 };
 // countdown
 let countdown = setInterval(getRemainingTime, 1000);
 
-getRemainingTime();
+// getRemainingTime();

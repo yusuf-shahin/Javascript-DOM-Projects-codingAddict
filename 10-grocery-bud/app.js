@@ -1,14 +1,14 @@
 // ****** SELECT ITEMS **********
+
 const alert = document.querySelector('.alert');
 const form = document.querySelector('.grocery-form');
 const groceryInput = document.querySelector('#grocery');
 const submitBtn = document.querySelector('.submit-btn');
-const container = document.querySelector('.grocery-container');
+const listContainer = document.querySelector('.grocery-container');
 const list = document.querySelector('.grocery-list');
 const clearBtn = document.querySelector('.clear-btn');
 
-// edit option
-
+// edit option (which gonna change by pressing editBtn of list)
 let editElement;
 let editFlag = false;
 let editId = '';
@@ -21,6 +21,8 @@ form.addEventListener('click', addItem);
 // clear btn
 clearBtn.addEventListener('click', clearItem);
 
+// ****** FUNCTIONS **********
+
 function addItem(e) {
   e.preventDefault();
 
@@ -32,7 +34,8 @@ function addItem(e) {
     // condition shortcut === (inputValue && !editFlag)
     const element = document.createElement('article');
     element.classList.add('grocery-item');
-    // add id
+
+    // add id (how can I dataset)
     const attr = document.createAttribute('data-id');
     attr.value = id;
     element.setAttributeNode(attr);
@@ -55,7 +58,15 @@ function addItem(e) {
     displayAlert('item is added', 'success');
 
     // show container
-    container.classList.add('show-container');
+    listContainer.classList.add('show-container');
+
+    // select edit and delet button
+    const editBtn = document.querySelector('.edit-btn');
+    const deleteBtn = document.querySelector('.delete-btn');
+    // console.log(deleteBtn);
+
+    deleteBtn.addEventListener('click', deletItem);
+    editBtn.addEventListener('click', editItem);
 
     // add to local storge
     addToLocalStorage(id, inputValue);
@@ -63,13 +74,17 @@ function addItem(e) {
     setBackToDefaule();
   } else if (inputValue !== '' && editFlag === true) {
     // condition shortcut === (inputValue && editFlag)
-    console.log('item is editing');
+
+    editElement.textContent = inputValue;
+    displayAlert('value change', 'success');
+
+    // edit local storage
+    editLocalStorage(editId, inputValue);
+    setBackToDefaule();
   } else {
     displayAlert('please enter the item', 'danger');
   }
 }
-
-// ****** FUNCTIONS **********
 
 // alert function
 function displayAlert(text, action) {
@@ -82,6 +97,7 @@ function displayAlert(text, action) {
     alert.classList.remove(`alert-${action}`);
   }, 1000);
 }
+
 // set back to default
 function setBackToDefaule() {
   groceryInput.value = '';
@@ -98,17 +114,53 @@ function clearItem() {
       list.removeChild(item);
     });
   }
-  container.classList.remove('show-container');
+  listContainer.classList.remove('show-container');
   displayAlert('empty item', 'danger');
 
   // local storage remove list
   setBackToDefaule();
 }
 
-function addToLocalStorage(id, value) {
-  console.log('add to local storage');
+// delete function
+function deletItem(e) {
+  const element = e.currentTarget.parentElement.parentElement;
+  const id = element.dataset.id;
+  list.removeChild(element);
+
+  if (list.children.length === 0) {
+    listContainer.classList.remove('show-container');
+  }
+  displayAlert('item romove', 'danger');
+
+  setBackToDefaule();
+
+  // remove from local storage
+  // removeFromLocalStorage(id)
+}
+
+// edit function
+function editItem(e) {
+  const element = e.currentTarget.parentElement.parentElement;
+
+  // change edit option
+  // set edit item
+  editElement = e.currentTarget.parentElement.previousElementSibling;
+  // console.log(editElement);
+
+  // set from value
+  groceryInput.value = editElement.textContent;
+  editFlag = true;
+  editId = element.dataset.id;
+  submitBtn.textContent = 'edit';
 }
 
 // ****** LOCAL STORAGE **********
 
+function addToLocalStorage(id, value) {
+  console.log('add to local storage');
+}
+
+function removeFromLocalStorage(id) {}
+
+function editLocalStorage(id, value) {}
 // ****** SETUP ITEMS **********

@@ -239,6 +239,7 @@ nav {
 .links-container {
   height: 0;
   overflow: hidden;
+  /* for that reason link does not show */
   transition: var(--transition);
 }
 .show-links {

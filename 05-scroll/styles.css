@@ -215,7 +215,7 @@ nav {
   color: var(--clr-secondary);
 }
 .fixed-nav .links-container {
-  height: auto !important;
+  /* height: auto !important; */
 }
 .nav-header {
   display: flex;

@@ -64,9 +64,6 @@ scrollLinks.forEach((link) => {
     const element = document.getElementById(linkId);
 
     // calculate the height
-    // let position = element.offsetTop;
-    // console.log(position);
-
     const navHeight = navbar.getBoundingClientRect().height;
     // console.log('navHeight is ' + navHeight);
     const containerHeight = linksContainer.getBoundingClientRect().height;
@@ -74,7 +71,7 @@ scrollLinks.forEach((link) => {
     const fixedNav = navbar.classList.contains('fixed-nav');
     // console.log('fixedNav is ' + fixedNav);
     let position = element.offsetTop - navHeight;
-    console.log('position is ' + position);
+    // console.log('position is ' + position);
 
     if (!fixedNav) {
       position = position - navHeight;

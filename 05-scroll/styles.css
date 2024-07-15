@@ -344,7 +344,7 @@ header {
 }
 footer {
   background: var(--clr-grey-1);
-  padding: 5rem 1rem;
+  padding: 2rem 1rem;
 }
 footer p {
   color: var(--clr-white);

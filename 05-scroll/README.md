@@ -137,8 +137,9 @@ nav {
 
 - here ".fixed-nav .links-container { height: auto !important; }" this is so importent
 
-### Smooth scroll using javascript
+### Create smooth scroll using javascript
 
+- Previously srcoll are basically control by HTML anchor tag. But here we create it dynamically.
 - First we target our all anchor tag class name "scroll-link"
 
 ```js
@@ -163,9 +164,9 @@ scrollLinks.forEach((link) => {
     console.log(position); // home = 0, about = 832, services = 1351, tours = 1951
 
     const navHeight = navbar.getBoundingClientRect().height;
-    console.log(navHeight); // always 82
+    console.log(navHeight); // always 82px
     const containerHeight = linksContainer.getBoundingClientRect().height;
-    console.log(containerHeight); // always 26.3999
+    console.log(containerHeight); // always 26.3999px
     const fixedNav = navbar.classList.contains('fixed-nav');
     //  scrollHeight > navHeight
     // ? navbar.classList.add('fixed-nav')
@@ -173,12 +174,16 @@ scrollLinks.forEach((link) => {
     console.log(fixedNav);
     // when scrollHeight > navHeight , fixedNav === true
     // when scrollHeight < navHeight , fixedNav === false
-    position = position - navHeight;
-    console.log(position); //
+    position = element.offsetTop - navHeight;
+    // We need position coz we want specific linkId under navbar. But here create another problem
 
     if (!fixedNav) {
+      // !fixedNav == navbar is static position. It is not fixed
       position = position - navHeight;
     }
+    // but problem is arise in small screen. In small screen when we open our "nav-toggle". So here we use a logic.
+    // If navHeight > 82 that mean "nav-toggle" is open.
+    // We add our container heigth with position.
     if (navHeight > 82) {
       position = position + containerHeight;
     }

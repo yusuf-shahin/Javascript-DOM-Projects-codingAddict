@@ -1,6 +1,6 @@
 ## In this project we can understand , how we increament - decreament & reset a value by using javascript.
 
-- First we set a initial value "count" and select our span id="value" and button class="btn"
+- First we set a initial value "count" and select our <span id="value"> and <button class="btn">
 
 ```js
 let count = 0;
@@ -22,7 +22,7 @@ btns.forEach((btn) => {
 });
 ```
 
-- We get our all button class="btns", Now can use addEventListener() method.
+- We get our all <button class="btns">, Now can use addEventListener() method.
 
 ```js
 btns.forEach((btn) => {

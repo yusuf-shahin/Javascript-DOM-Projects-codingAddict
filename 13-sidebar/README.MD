@@ -82,7 +82,14 @@ const sidebar = document.querySelector('.sidebar');
 }
 ```
 
-- In this CSS "transform: translate(-100%)" invisibile the whole <aside class="sidebar"> from screen. So if we want to show the sidebar in screen we must use "transform: translate(0)".
+- In this CSS "transform: translate(-100%)" invisibile entire "sidebar" from screen. So if we want to show the sidebar in screen we must use "transform: translate(0)" in css.
+- For that we can create a CSS class :-
+
+```css
+.show-sidebar {
+  transform: translate(0);
+}
+```
 
 #### To show the sidebar by using javascript, we can write this :-
 
@@ -101,7 +108,7 @@ toggleBtn.addEventListener('click', () => {
 
 - If the element has the className, the toggle() method removes it. If the element doesn’t have the className, the toggle() method adds the className to the classList.
 
-#### We can hide the sidebar by clicking <button class="close-btn"> , for that can write this :-
+#### We can hide the sidebar by clicking "close-btn" , for that can write this code :-
 
 ```js
 closeBtn.addEventListener('click', () => {
@@ -109,7 +116,7 @@ closeBtn.addEventListener('click', () => {
 });
 ```
 
-### The entire js code of sidebar project
+### The entire js code of sidebar project :-
 
 ```js
 const toggleBtn = document.querySelector('.sidebar-toggle');

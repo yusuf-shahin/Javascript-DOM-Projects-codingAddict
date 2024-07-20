@@ -39,7 +39,7 @@ function carousel() {
   // } else {
   //   prevBtn.style.display = 'none';
   // }
-  slides.forEach(function (slide) {
+  slides.forEach((slide) => {
     slide.style.transform = `translateX(-${counter * 100}%)`;
   });
 }

@@ -15,9 +15,9 @@ about.addEventListener('click', (e) => {
     // remove active from other btns
     btns.forEach((btn) => {
       btn.classList.remove('active');
-      e.target.classList.add('active');
+      e.currentTarget.classList.add('active');
     });
-    // hide other article
+    // hide other article heading and peregraph
 
     contentArticles.forEach((article) => {
       article.classList.remove('active');

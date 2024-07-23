@@ -9,24 +9,33 @@
 //     question.classList.toggle('show-text');
 //   });
 // });
+// The problem :-
+// But the problem of this code, if I open one article it will not close until I close it.
 
-//  //  Using selector inside the element
+// =========================
+// Using selector inside the element
+// =========================
 
-const setOfQues = document.querySelectorAll('.question');
+const articleOfQues = document.querySelectorAll('.question');
+// event deligation :-
 
-setOfQues.forEach(function (question) {
+articleOfQues.forEach((question) => {
   const btn = question.querySelector('.question-btn');
   // console.log(btn);
 
-  btn.addEventListener('click', function () {
+  btn.addEventListener('click', () => {
     // console.log(question);
 
-    setOfQues.forEach(function (e) {
+    articleOfQues.forEach((e) => {
       if (e !== question) {
-        // e stand for setOfQues
+        // e stand for articleOfQues
+        console.log(e);
         e.classList.remove('show-text');
+        // console.log(e.classList.remove('show-text'));
       }
     });
+
+    // This condition help to render question article at a single time. When one article is open at that moment other article will be close.
 
     question.classList.toggle('show-text');
   });

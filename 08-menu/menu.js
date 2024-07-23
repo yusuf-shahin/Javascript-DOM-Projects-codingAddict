@@ -82,5 +82,6 @@ const menu = [
 ];
 
 const categoryBtns = menu.map((items) => items.category);
+// ["breakfast","lunch","shakes","breakfast","lunch", "shakes","breakfast","lunch","shakes","dinner" ];
 
 // console.log(categoryBtns);

@@ -138,6 +138,12 @@ p {
 }
 /*  global classes */
 
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 .btn {
   text-transform: uppercase;
   background: transparent;
@@ -157,6 +163,13 @@ p {
   background: var(--clr-black);
 }
 /* section */
+
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 .section {
   padding: 5rem 0;
 }
@@ -171,11 +184,7 @@ p {
     width: 95vw;
   }
 }
-main {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-}
+
 /*
 =============== 
 Questions
@@ -239,9 +248,11 @@ Questions
   color: #004;
 }
 
-/* ========== 
+/* 
+========== 
   hide text 
- ========== */
+========== 
+*/
 
 .question-text {
   display: none;

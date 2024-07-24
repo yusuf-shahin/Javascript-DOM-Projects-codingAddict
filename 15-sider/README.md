@@ -37,8 +37,8 @@
   <!-- btn -->
 
   <div class="btn-container">
-    <button class="prevBtn">prev</button>
-    <button class="nextBtn">next</button>
+    <button class="prevBtn"><- prev</button>
+    <button class="nextBtn">next -></button>
   </div>
   <!-- javascript -->
   <script src="app.js"></script>

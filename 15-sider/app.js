@@ -18,7 +18,7 @@ nextBtn.addEventListener('click', () => {
   carousel();
 });
 
-function carousel() {
+const carousel = () => {
   // working with slides
   if (counter === slides.length) {
     counter = 0;
@@ -42,6 +42,6 @@ function carousel() {
   slides.forEach((slide) => {
     slide.style.transform = `translateX(-${counter * 100}%)`;
   });
-}
+};
 
 // prevBtn.style.display = 'none';
